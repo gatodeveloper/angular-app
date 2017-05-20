@@ -15,7 +15,7 @@
     VM.wayPoints = [];
 
     VM.onClickMap = function(e){
-      
+
       var event = e.latLng;
       var lat = event.lat();
       var lng = event.lng();
@@ -52,6 +52,7 @@
     }
 
     function printPoints(results){
+      debugger;
       var points = [],
           initWayPoints = [],
           initPoints = [],

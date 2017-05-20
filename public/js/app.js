@@ -47,20 +47,38 @@ angular.module('catMap.map')
 })();
 
 (function(){
-	'use strict';
+    'use strict';
 
-	angular.module('catMap', [
+    angular.module('catMap', [
     'ui.router',
     'ngSanitize',
     'ngMap',
-	'catMap.map',
-	]);
-	
-	angular.module('catMap');
-
-	angular.module('catMap').run(['$rootScope', '$state', function ($rootScope, $state) {
+    'catMap.map',
+    ]);
     
-  }]);
+    angular.module('catMap');
+
+    angular.module('catMap').run(['$rootScope', '$state', 'appConfig', function ($rootScope, $state, appConfig) {
+      $rootScope.appConfig = appConfig;
+    }]);
+
+})();
+
+(function(){
+  'use strict';
+
+  angular.module('catMap')
+    .constant("appConfig", {
+      url: 'http://localhost',
+      port: '4001',
+      googleMaps: {
+        key: "AIzaSyA8IIr_mIQ65H_5CQqCSjwyo_tLST36Yog",
+        apis: "https://maps.googleapis.com/maps/api/",
+        geocodeUrl: "https://maps.googleapis.com/maps/api/geocode/json",
+        apiUrl: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA8IIr_mIQ65H_5CQqCSjwyo_tLST36Yog"
+      }
+
+    });
 
 })();
 
@@ -114,7 +132,7 @@ angular.module('catMap.map')
     VM.wayPoints = [];
 
     VM.onClickMap = function(e){
-      
+
       var event = e.latLng;
       var lat = event.lat();
       var lng = event.lng();
@@ -151,6 +169,7 @@ angular.module('catMap.map')
     }
 
     function printPoints(results){
+      debugger;
       var points = [],
           initWayPoints = [],
           initPoints = [],
@@ -216,16 +235,17 @@ angular.module('catMap.map')
   angular.module('catMap.map')
     .factory('MapFactory', MapFactory);
 
-    MapFactory.$inject = ['$http', '$q'];
+    MapFactory.$inject = ['$http', '$q', 'appConfig'];
 
-    function MapFactory($http, $q){
+    function MapFactory($http, $q, appConfig){
+      var googleConfig = appConfig.googleMaps;
       return {
         getAddresses: function(){
           return $http.get('./data/address.json');
         },
         getGoogleAddress: function(address){
           address = address.replace(/#/ig, 'No');
-          return $http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key=AIzaSyA8IIr_mIQ65H_5CQqCSjwyo_tLST36Yog&components=country:co&components=locality:bogota');
+          return $http.get(googleConfig.geocodeUrl+'?address='+address+'&components=country:co&components=locality:bogota&key='+googleConfig.key);
         },
         getGeoInfoByAddresses: function(addresses){
           var self = this,

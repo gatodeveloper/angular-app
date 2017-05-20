@@ -1,4 +1,4 @@
-section(map-lazy-load="https://maps.google.com/maps/api/js", class="h-100")
+section(map-lazy-load="https://maps.google.com/maps/api/js", map-lazy-load-params="{{$root.appConfig.googleMaps.apiUrl}}", class="h-100")
   ng-map(center="[4.7011186, -74.0566171]", zoom-to-include-markers="true", default-style="false" class="h-100" on-click="onClickMap()")
     directions(
       ng-if="newRute",
