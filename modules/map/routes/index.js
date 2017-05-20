@@ -12,10 +12,8 @@ angular.module('catMap.map')
     $stateProvider
       .state('map', {
         url: "/",
-        //template: '<div ui-view=""></div>',
         views: {
           content: {
-            //templateUrl:'partials/main.html',
             templateUrl: "partials/map.index.html",
             controller: 'MapCtrl'
           },

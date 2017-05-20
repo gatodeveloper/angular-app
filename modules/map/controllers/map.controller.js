@@ -31,8 +31,10 @@
           stopover: true
         };
       });
+      var lastWayPoint = VM.wayPoints[VM.wayPoints.length-1];
       VM.origin = lat+','+lng;
-      VM.destination = VM.wayPoints[4].location.lat+','+VM.wayPoints[4].location.lng;
+
+      VM.destination = lastWayPoint.location.lat+','+lastWayPoint.location.lng;
       VM.newRute = true;
       VM.clickedMap = true;
     }
@@ -52,7 +54,7 @@
     }
 
     function printPoints(results){
-      debugger;
+      
       var points = [],
           initWayPoints = [],
           initPoints = [],
