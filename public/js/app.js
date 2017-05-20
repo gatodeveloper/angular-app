@@ -72,10 +72,10 @@ angular.module('catMap.map')
       url: 'http://localhost',
       port: '4001',
       googleMaps: {
-        key: "AIzaSyA8IIr_mIQ65H_5CQqCSjwyo_tLST36Yog",
+        key: "AIzaSyA4-LkXroaG8cjUszwUORc1fbwWPDPGBZo",
         apis: "https://maps.googleapis.com/maps/api/",
         geocodeUrl: "https://maps.googleapis.com/maps/api/geocode/json",
-        apiUrl: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA8IIr_mIQ65H_5CQqCSjwyo_tLST36Yog"
+        apiUrl: "https://maps.googleapis.com/maps/api/js?key=AIzaSyA4-LkXroaG8cjUszwUORc1fbwWPDPGBZo"
       }
 
     });
