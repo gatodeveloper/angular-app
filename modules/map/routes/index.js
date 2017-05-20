@@ -11,7 +11,7 @@ angular.module('catMap.map')
 
     $stateProvider
       .state('map', {
-        url: "/map",
+        url: "/",
         //template: '<div ui-view=""></div>',
         views: {
           content: {

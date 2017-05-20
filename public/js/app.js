@@ -25,7 +25,7 @@ angular.module('catMap.map')
 
     $stateProvider
       .state('map', {
-        url: "/map",
+        url: "/",
         //template: '<div ui-view=""></div>',
         views: {
           content: {
@@ -54,8 +54,8 @@ angular.module('catMap.map')
     'ngSanitize',
     'ngMap',
 	'catMap.map',
-
 	]);
+	
 	angular.module('catMap');
 
 	angular.module('catMap').run(['$rootScope', '$state', function ($rootScope, $state) {
@@ -77,7 +77,7 @@ angular.module('catMap.map')
       $stateProvider
         
         .state('main', {
-          url: '/',
+          url: '/home',
           views: {
             content: {
               templateUrl:'partials/main.html',

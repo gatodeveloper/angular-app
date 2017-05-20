@@ -6,8 +6,8 @@
     'ngSanitize',
     'ngMap',
 	'catMap.map',
-
 	]);
+	
 	angular.module('catMap');
 
 	angular.module('catMap').run(['$rootScope', '$state', function ($rootScope, $state) {
