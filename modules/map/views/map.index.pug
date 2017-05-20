@@ -1,0 +1,39 @@
+section(map-lazy-load="https://maps.google.com/maps/api/js", class="h-100")
+  ng-map(center="[4.7011186, -74.0566171]", zoom-to-include-markers="true", default-style="false" class="h-100" on-click="onClickMap()")
+    directions(
+      ng-if="newRute",
+      draggable="false",
+      panel="directions-panel",
+      travel-mode="",
+      waypoints="{{wayPoints}}",
+      origin="{{origin}}",
+      destination="{{destination}}"
+      )
+
+    marker(
+        ng-if="clickPoint",
+        position="{{clickPoint}}",
+        animation="Animation.BOUNCE",
+        centered="true"
+      )
+
+    marker(
+        ng-repeat="point in points track by $index",
+        on-click="drawnRute()",
+        data="{{point}}",
+        position="{{point.pos}}",
+        title="{{point.name}}"
+      )
+
+div#map-info
+  h5 Map info
+  div(ng-switch="!!clickedMap")
+    div(ng-switch-when="true")
+      b Places in your route:
+      ul(class="list-near-places")
+        li(ng-repeat="pointData in pointsData" ng-class="{'info-look': $index == 0}")
+          span.block {{pointData.formatted_address}}
+          small(ng-if="$index == 0") Nearest
+
+    div(ng-switch-when="false")
+      p Please click somewhere on the map!

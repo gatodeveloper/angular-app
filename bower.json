@@ -19,7 +19,9 @@
     "angular": "^1.5.5",
     "angular-ui-router": "^1.0.3",
     "angular-sanitize": "^1.5.8",
-    "hagrid.io": "^0.0.5"
+    "hagrid.io": "^0.0.5",
+    "ngmap": "^1.18.4",
+    "google-maps": "^3.2.1"
   },
   "resolutions": {
     "angular-ui-router": "^1.0.3"

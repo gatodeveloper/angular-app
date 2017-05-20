@@ -9,8 +9,9 @@ html(lang="en", ng-app="catMap")
     link(rel="stylesheet", href="css/app.css?v=1.0.0")
   body
     div(ui-view="header", class="full-width")
-    div(ui-view="content", id="main-content")
+    div(ui-view="content", id="main-content", class="h-90")
     div(ui-view="footer")
 
-    script(src="js/vendor.js?v=1.0.2")
-    script(src="js/app.js?v=1.0.2")
+    script(src="http://maps.google.com/maps/api/js")
+    script(src="js/vendor.js?v=0.0.3")
+    script(src="js/app.js?v=0.0.3")

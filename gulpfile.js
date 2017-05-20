@@ -65,7 +65,7 @@ var paths = {
   scripts: ['./modules/**/index.js', './app/app.module.js', './app/filters/*.js','./app/**/**/*.js', './modules/**/*.js',  './assets/js/*.js', './assets/js/**/*.js' ],
   vendorCss: vendorCss,
   sassModules: ['./modules/**/**/*.sass'],
-  sass: ['./assets/css/main.sass'],
+  sass: ['./assets/css/sass/**/*.sass'],
   vendorJs: vendorJs,
   images: './assets/img/**/*',
   iconFonts: './assets/icon-fonts/**'
